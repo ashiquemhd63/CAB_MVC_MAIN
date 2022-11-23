@@ -27,7 +27,10 @@ const booking = db.sequelize.define('booking',{
     },
     cab_no : {
         type : DataTypes.INTEGER,
-        allowNull : false
+        references : {
+            model : 'cabs',
+            key : 'cab_no'
+        }
     },
 
     cost : {
@@ -36,15 +39,26 @@ const booking = db.sequelize.define('booking',{
     },
     passenger_id : {
         type : DataTypes.INTEGER,
-        allowNull : false,
+        references : {
+            model : 'passengers',
+            key : 'Passenger_id'
+
+        }
+        
         
 
     },
     driver_id : {
         type :DataTypes.INTEGER,
+        references : {
+            model : 'drivers',
+            key : 'Driver_id'
+        }
+
         
 
-    }
+    },
+
 
 })
 
