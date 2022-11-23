@@ -42,7 +42,8 @@ const Driver = db.sequelize.define('Driver',{
     Driver_gender : {
         type : DataTypes.STRING(5),
         allowNull  : false
-    }
+    },
+    
 
 
         

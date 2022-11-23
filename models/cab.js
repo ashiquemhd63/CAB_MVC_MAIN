@@ -1,45 +1,53 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const db = require('./db');
+const Driver =require('./driver')
 
 
-const Passenger = db.sequelize.define('Passenger',{
-    Passenger_id : {
+const cab = db.sequelize.define('cab',{
+    cab_no : {
         type : DataTypes.INTEGER,
         autoIncrement : true,
         primaryKey : true
     },
-    firstName : {
+    cab_name : {
         type : DataTypes.STRING(50),
         allowNull : false
 
     },
-    lastName : {
+    cab_description : {
         type : DataTypes.STRING(50),
-        allowNull : false
+        
     },
-    password : {
-        type : DataTypes.STRING(50),
-        allowNull : false
-    },
-    email : {
-        type : DataTypes.STRING(50),
-        allowNull : false,
-        unique : true
-
-    },
-    mobile : {
+    cab_total_capacity : {
         type : DataTypes.INTEGER,
         allowNull : false
     },
-    dob : { 
-        type : DataTypes.DATE
+    //setting foriengn key
+    Driver_Id : {
+        type : DataTypes.INTEGER,
+        references : {
+            model : 'drivers',
+            key : 'Driver_id'
+
+        }
+
+       
+
     },
-    gender :  {
-        type : DataTypes.STRING(5),
-        allowNull : false
-    }
+
+
+
+
+   
 
 
 })
+// Driver.hasMany(cab, {as: "drivertable"});
+// cab.belongsTo(Driver, {
+//     foreignKey : "driverid",
+//     as: "driver"
+// })
 
-module.exports = Passenger  
+
+
+module.exports = cab  ;
