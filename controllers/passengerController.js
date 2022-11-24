@@ -7,7 +7,9 @@ module.exports.registerPage = (req, res, next) => {
 module.exports.homePage = (req, res, next)=>{
     res.render('homepage')
 }
-
+module.exports.loginPage = (req, res, next)=>{
+    res.render('passenger-login')
+}
 module.exports.registerUser = (req, res, nex)=>{
     passenger.create({
         firstName : req.body.firstName,
