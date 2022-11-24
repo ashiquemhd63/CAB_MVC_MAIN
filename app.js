@@ -1,0 +1,19 @@
+// const express = require('express');
+const express = require('express');
+const parser = require('body-parser');
+const passengerRoutes = require('./routes/passengerRoutes');
+const path = require('path');
+const {engine} = require('express-handlebars');
+
+const app = express();
+app.engine('handlebars', engine());
+
+app.set('view engine', 'handlebars');
+
+app.use("/", parser.urlencoded({extended: true}));
+app.use("/static", express.static(path.join(__dirname, 'static')));
+app.use(passengerRoutes);
+
+app.listen(80)
+
+

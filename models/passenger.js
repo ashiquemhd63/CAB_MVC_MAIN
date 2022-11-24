@@ -28,7 +28,7 @@ const Passenger = db.sequelize.define('Passenger',{
 
     },
     mobile : {
-        type : DataTypes.INTEGER,
+        type : DataTypes.BIGINT,
         allowNull : false
     },
     dob : { 

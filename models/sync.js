@@ -3,7 +3,7 @@ const Driver = require('./driver')
 const Cab = require('./cab')
 const Booking = require('./booking')
 
-Passenger.sync()
+Passenger.sync({alter: true})
 
 Driver.sync()
 
