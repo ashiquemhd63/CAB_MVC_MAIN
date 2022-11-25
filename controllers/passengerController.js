@@ -23,4 +23,16 @@ module.exports.registerUser = (req, res, nex)=>{
         // alert("Registration successful")
         res.redirect('/home')
     })
+};
+module.exports.loginPage = (req, res, next)=>{
+    res.render('login')
 }
+// module.exports.deletePassenger = (req, res, next)=>{
+
+// }
+
+//Displaying passenger profile
+// module.exports.passengerProfile = (req, res, next)=>{
+
+// }
+
