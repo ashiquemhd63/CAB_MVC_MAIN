@@ -27,6 +27,20 @@ module.exports.registerUser = (req, res, nex)=>{
 module.exports.loginPage = (req, res, next)=>{
     res.render('login')
 }
+
+module.exports.loginPost = async (req, res, next) =>{
+    const {email, password} = req.body;
+    const passFromDb = await passenger.findOne({
+        where:{ email: email, password: password}
+    });
+    if (passFromDb == null) {
+        return res.render('login',{message : 'no user found'})
+    }
+    //TODO: ADD cookie, save the passenger id in cookie session
+    else{
+        res.redirect('home')
+    } 
+}
 // module.exports.deletePassenger = (req, res, next)=>{
 
 // }

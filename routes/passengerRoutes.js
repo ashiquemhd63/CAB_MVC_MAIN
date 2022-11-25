@@ -15,5 +15,7 @@ router.get('/home',controller.homePage);
 
 router.get('/login',controller.loginPage);
 
+router.post('/login',controller.loginPost);
+
 module.exports = router;
 
