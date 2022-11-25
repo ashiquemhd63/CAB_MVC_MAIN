@@ -2,7 +2,7 @@ const passenger = require('../models/passenger');
 
 module.exports.registerPage = (req, res, next) => {
     res.render('passenger-registration')
-}
+}   
 
 module.exports.homePage = (req, res, next)=>{
     res.render('homepage')
