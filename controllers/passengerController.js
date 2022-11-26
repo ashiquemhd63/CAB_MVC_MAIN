@@ -1,3 +1,4 @@
+// const Passenger = require('../models/passenger');
 const passenger = require('../models/passenger');
 
 module.exports.registerPage = (req, res, next) => {
@@ -5,7 +6,10 @@ module.exports.registerPage = (req, res, next) => {
 }   
 
 module.exports.homePage = (req, res, next)=>{
-    res.render('homepage')
+    // console.log("request at home page: ")
+    // console.log(req)
+    console.log('🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗')
+    return res.render('homepage')
 }
 
 module.exports.registerUser = (req, res, nex)=>{
@@ -37,9 +41,11 @@ module.exports.loginPost = async (req, res, next) =>{
         return res.render('login',{message : 'no user found'})
     }
     //TODO: ADD cookie, save the passenger id in cookie session
-    else{
-        res.redirect('home')
-    } 
+    req.session.passengerId = passFromDb.Passenger_id;
+    //below code is working
+    // console.log("the saved passenger id")
+    // console.log(req.session.passengerId)
+    return res.redirect('/home')
 }
 // module.exports.deletePassenger = (req, res, next)=>{
 
@@ -49,4 +55,7 @@ module.exports.loginPost = async (req, res, next) =>{
 // module.exports.passengerProfile = (req, res, next)=>{
 
 // }
+
+
+
 

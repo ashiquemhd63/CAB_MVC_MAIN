@@ -9,7 +9,7 @@ router.get('/create',controller.registerPage);
 
 router.post('/create',controller.registerUser);
 
-router.get('/home',controller.homePage);
+router.get('/home', controller.homePage);
 
 // router.get('/profile', )
 
