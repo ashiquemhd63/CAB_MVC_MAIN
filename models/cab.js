@@ -25,12 +25,7 @@ const cab = db.sequelize.define('cab',{
     //setting foriengn key
     Driver_Id : {
         type : DataTypes.INTEGER,
-        references : {
-            model : 'drivers',
-            key : 'Driver_id'
-
-        }
-
+       
        
 
     },

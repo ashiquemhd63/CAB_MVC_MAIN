@@ -3,7 +3,9 @@ const passenger = require('../models/passenger');
 
 module.exports.registerPage = (req, res, next) => {
     res.render('passenger-registration')
-}   
+}  
+
+
 
 module.exports.homePage = (req, res, next)=>{
     // console.log("request at home page: ")
@@ -56,6 +58,30 @@ module.exports.loginPost = async (req, res, next) =>{
 
 // }
 
+module.exports.passengerProfile = (req, res, next)=>{
+    console.log("🚗")
+    console.log(req.identity)
+    res.render('passengerprofile', {
+        data : req.identity.passenger
+    })
+    
+    // let passengerId = req.identity.passenger.id;
+    // res.send(passengerId);
 
+    // const passFromDb =  passenger.findAll({
+    //     where:{Passenger_id : passengerId }
+    // });
+    // console.log("This is from")
+    // console.log(passFromDb)
+    // // console.log()
+    // passenger.findAll()
+    //     .then(passFromDb => {
+    //         res.render('passengerprofile', {
+    //             data: passFromDb
+    //         });
+    //     });
+
+
+}
 
 

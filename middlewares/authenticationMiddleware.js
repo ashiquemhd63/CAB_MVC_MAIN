@@ -27,6 +27,9 @@ module.exports = async(req, res, next) => {
         firstName : passengerFromDb.dataValues.firstName,
         lastName : passengerFromDb.dataValues.lastName,
         email : passengerFromDb.dataValues.email,
+        mobile : passengerFromDb.dataValues.mobile,
+        dob : passengerFromDb.dataValues.dob,
+        
         role : 'passenger'
     }
     next();

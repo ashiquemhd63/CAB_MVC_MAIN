@@ -6,6 +6,7 @@ const path = require('path');
 const {engine} = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const authMiddleware =  require('./middlewares/authenticationMiddleware')
+const bookingRoutes = require('./routes/bookingRoute')
 
 const app = express();
 app.engine('handlebars', engine());
@@ -32,6 +33,8 @@ app.use(cookieSession({
 app.use(authMiddleware)
 
 app.use("/", passengerRoutes);
+
+app.use('/', bookingRoutes);
 
 app.listen(80)
 
