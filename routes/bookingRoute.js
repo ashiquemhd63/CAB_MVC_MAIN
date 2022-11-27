@@ -1,10 +1,10 @@
-var express = require('express');
+// var express = require('express');
 
-var bookingController = require('../controllers/bookingController')
+// var bookingController = require('../controllers/bookingController')
 
 
-const router = express.Router();
+// const router = express.Router();
 
-router.get('/bookcab',bookingController.bookingPage);
+// router.get('/availablecabs',bookingController.avalableCabs);
 
-module.exports = router
+// module.exports = router;

@@ -1,0 +1,40 @@
+<h1 class="text-center">Available Cabs</h1>
+<div class="container">
+    {{!-- <a href="/create" class="btn btn-primary">+ New Movie</a> --}}
+    <table class="table table-striped mt-4">
+        <tr>
+            <th>Cab name</th>
+            <th>Description</th>
+            <th>Capacity</th>
+
+            
+        </tr>
+        {{#each cabDetails}}
+                <tr>
+            <td>{{this.dataValues.cab_name}}</td>
+            <td>{{this.dataValues.cab_description}}</td>
+            <td>{{this.dataValues.cab_total_capacity}}</td>
+            <td>
+                <a href="bookingPage">Book now</a>
+            </td>
+
+            {{!-- <td>{{data.}}</td> --}}
+            {{!-- <td>{{this.mobile}}</td>
+            <td>{{this.dataValues.dob}}</td> --}}
+            {{!-- <td>
+                <a href="/update/{{this.dataValues.id}}">Edit</a> |
+                <a href="/delete/{{this.dataValues.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td> --}}
+        </tr>
+
+        {{/each}}
+        <script>
+            console.log
+        </script>
+       
+    </table>
+    <p class="text-end">You are logged in as: 
+        <b>{{data.firstName}} {{data.lastName}}</b>
+    </p>
+</div>
+

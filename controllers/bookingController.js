@@ -1,6 +1,10 @@
 const booking = require('../models/booking');
 
-module.exports.bookingPage = (req, res, next)=>{
-    res.render('bookcab');
+const driver = require('../models/driver')
+//rendering available cabs page
+module.exports.avalableCabs = (req, res, next)=>{
+
+    
+    res.render('availablecabs');
     
 }
