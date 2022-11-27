@@ -19,5 +19,8 @@ router.post('/login',controller.loginPost);
 //for loading cab booking page
 
 router.get('/profile', controller.passengerProfile)
-module.exports = router;
+
+router.get('/updateProfile', controller.updateProfile)
+router.post('/updateProfile', controller.updateProfilePost)
+module.exports = router;    
 

@@ -2,7 +2,9 @@
 const passenger = require('../models/passenger');
 
 module.exports.registerPage = (req, res, next) => {
-    res.render('passenger-registration')
+    res.render('passenger-registration',{
+        heading : 'Registration'
+    })
 }  
 
 
@@ -62,7 +64,8 @@ module.exports.passengerProfile = (req, res, next)=>{
     console.log("🚗")
     console.log(req.identity)
     res.render('passengerprofile', {
-        data : req.identity.passenger
+        data : req.identity.passenger,
+        
     })
     
     // let passengerId = req.identity.passenger.id;
@@ -82,6 +85,44 @@ module.exports.passengerProfile = (req, res, next)=>{
     //     });
 
 
+}
+
+module.exports.updateProfile = (req, res, next)=>{
+    // console.log("this is from update profile");
+    // console.log('🚗🚗');
+    // console.log(req.identity.passenger.id)
+    passenger.findByPk(req.identity.passenger.id)
+    .then(passFromDb => {
+        // console.log('🚗🚗🚗')
+        // console.log(passFromDb.Passenger)
+        res.render('updateprofile',{
+            heading : 'Update Profile',
+            data : passFromDb
+        }
+    );
+    })
+    
+}
+
+
+//storing updated profile into the database
+module.exports.updateProfilePost =  async (req, res, next ) =>{
+    // console.log(req.body.firstName)
+    await passenger.update({
+        firstName : req.body.firstName,
+        lastName  : req.body.lastName,
+        email : req.body.email,
+        password : req.body.password,
+        mobile :  req.body.mobile
+    },
+    {
+        where: {
+            Passenger_id : req.identity.passenger.id
+        }
+    }
+    
+    )
+    res.redirect('/home')
 }
 
 
