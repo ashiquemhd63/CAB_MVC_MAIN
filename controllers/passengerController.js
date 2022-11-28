@@ -126,3 +126,17 @@ module.exports.updateProfilePost =  async (req, res, next ) =>{
 }
 
 
+module.exports.deleteProfile = async (req, res, next)=>{
+
+    let id = req.identity.passenger.id;
+    let passengerFromDb = await passenger.findByPk(id);
+    if (passengerFromDb != null) {
+        await passenger.destroy({
+            where : { Passenger_id : id}
+        })
+    }
+
+    res.redirect('/login')
+} 
+
+

@@ -21,6 +21,7 @@ router.post('/login',controller.loginPost);
 router.get('/profile', controller.passengerProfile)
 
 router.get('/updateProfile', controller.updateProfile)
-router.post('/updateProfile', controller.updateProfilePost)
+router.post('/updateProfile', controller.updateProfilePost);
+router.get('/deleteProfile', controller.deleteProfile)
 module.exports = router;    
 
