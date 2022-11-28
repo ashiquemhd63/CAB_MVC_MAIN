@@ -10,7 +10,8 @@ module.exports.avalableCabs = (req, res, next)=>{
         console.log('🚗🚗🚗🚗')
         console.log(cabs)
         res.render('availablecabs',{
-            cabDetails : cabs
+            cabDetails : cabs,
+            data : req.identity.passenger
         });
     })
     

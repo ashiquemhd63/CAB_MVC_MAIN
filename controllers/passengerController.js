@@ -51,7 +51,7 @@ module.exports.loginPost = async (req, res, next) =>{
     // console.log(req.session.passengerId)
     return res.redirect('/home')
 }
-// module.exports.deletePassenger = (req, res, next)=>{
+// module.exports.delete    Passenger = (req, res, next)=>{
 
 // }
 
