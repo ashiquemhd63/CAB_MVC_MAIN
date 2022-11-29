@@ -36,7 +36,7 @@ app.use(authMiddleware)
 app.use("/", passengerRoutes);
 app.use("/", cabRoutes)
 
-// app.use('/', bookingRoutes);
+app.use('/', bookingRoutes);
 
 app.listen(80)
 

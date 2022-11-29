@@ -5,7 +5,7 @@ const Booking = require('./booking');
 
 
 //adding foriegn keys
-//foriegn key for cabs table from drivers table
+// foriegn key for cabs table from drivers table
 Driver.hasMany(Cab, {foreignKey:'Driver_Id'});
 Cab.belongsTo(Driver, {
 
@@ -29,7 +29,7 @@ Booking.belongsTo(Driver, {
 
 });
 Passenger.hasMany(Booking, {foreignKey:'passenger_id'});
-Cab.belongsTo(Driver, {
+Booking.belongsTo(Driver, {
 
     foreignKey:'passenger_id'
 
@@ -44,7 +44,7 @@ Cab.belongsTo(Driver, {
 
 // Cab.sync({alter: true});
 
-Booking.sync({alter: true});
+// Booking.sync({alter: true});
 
 
 
