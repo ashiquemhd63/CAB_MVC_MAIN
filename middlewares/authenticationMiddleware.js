@@ -14,7 +14,7 @@ module.exports = async(req, res, next) => {
         return res.redirect("/login");
     }
     let passengerFromDb = await passenger.findByPk(passengerId);
-    console.log("checking passenger user name and password in authentication middleware")
+    // console.log("checking passenger user name and password in authentication middleware")
     if (passengerFromDb == null) {
         return res.redirect('/login');
     }

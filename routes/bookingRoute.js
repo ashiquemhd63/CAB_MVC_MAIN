@@ -8,6 +8,6 @@ var bookingController = require('../controllers/bookingController')
 const router = express.Router();
 
 router.get('/cabDetails/:cab_no',bookingController.cabDetails);
-router.post('/cabDetaisls',bookingController.saveBookingDetails);
-
+router.post('/cabDetails/:cab_no',bookingController.saveBookingDetails);
+        
 module.exports = router;
