@@ -9,5 +9,6 @@ const router = express.Router();
 
 router.get('/cabDetails/:cab_no',bookingController.cabDetails);
 router.post('/cabDetails/:cab_no',bookingController.saveBookingDetails);
+router.get('/paymentDetails/:cab_no',bookingController.viewBookingDetails)
         
 module.exports = router;

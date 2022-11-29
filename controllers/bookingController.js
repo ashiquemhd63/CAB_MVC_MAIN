@@ -27,7 +27,7 @@ module.exports.cabDetails = (req, res, next)=>{
 //saving booking deatils
 module.exports.saveBookingDetails =  (req, res, next)=>{
     // var driverid ;]
-    console.log("From saveBookingDetails")
+    // console.log("From saveBookingDetails")
     cab.findByPk(req.params.cab_no).then((cabDetails)=>{
         console.log("From findbypk")
         console.log(cabDetails.Driver_Id)
@@ -53,6 +53,18 @@ module.exports.saveBookingDetails =  (req, res, next)=>{
    
         
     )
-    res.redirect('/home')
+    res.redirect('/paymentDetails/'+req.params.cab_no)
     
+}
+
+module.exports.viewBookingDetails = async(req, res, next) => {
+    // booking.findByPk(req.params.book_id).then()
+    console.log('🚗🚗🚗🚗🚗')
+    // console.log(req.params.cab_no)
+    var paymentDetails = await booking.findOne({where : {cab_no: req.params.cab_no}})
+    console.log(paymentDetails)
+    res.render('payment',
+    {
+        data : paymentDetails
+    })
 }
