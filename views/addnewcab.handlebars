@@ -3,10 +3,7 @@
     <div class="row">
         <div class="col-sm-6 offset sm-3">
             <form method="post">
-                <div>
-                    <label for="cabNo">Cab No</label>
-                    <input type="number" name="cabNo" id="cabNo" class="form-control">
-                </div>
+                
                 <div>
                     <label for="cabName">Cab Name</label>
                     <input type="text" name="cabName" id="cabName" class="form-control">
@@ -20,19 +17,29 @@
                     <label for="totalCapacity">Total Capacity</label>
                     <input type="number" name="totalCapacity" id="totalCapacity" class="form-control">
                 </div>
+               
+
+                 
                 <div>
-                    <label for="cost">Cost</label>
-                    <input type="number" name="cost" id="cost" class="form-control">
-                </div>
-                <select>
-                    <option value="actual value 1">Display Text 1</option>
-                    <option value="actual value 2">Display Text 2</option>
-                    <option value="actual value 3">Display Text 3</option>
+                   
+                    <label for="Drivername">Driver</label>
+                    
+                    <select class="drivername" name="drivername" id="drivername">
+                    {{#each driverName}}
+                    <option value={{this.dataValues.Drive_name}}:{{this.dataValues.Driver_id}} ':' + >{{this.dataValues.Drive_name}}</option>
+                    {{/each}}
+                  
                 </select>
-                <div>
+                  
+
+                </div>
+                
+                
+                
+                {{!-- <div>
                     <label for="driverId">Driver Name</label>
                     <input type="number" name="driverId" id="driverId" class="form-control">
-                </div>
+                </div> --}}
                 <div class="d-grid mt-4">
                     <button class="btn btn-primary">Save</button>
                 </div>
