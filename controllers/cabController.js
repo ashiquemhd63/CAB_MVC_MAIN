@@ -11,7 +11,8 @@ module.exports.avalableCabs = (req, res, next)=>{
         // console.log(cabs)
         res.render('availablecabs',{
             cabDetails : cabs,
-            data : req.identity.passenger
+            data : req.identity.passenger,
+            
         });
     })
     

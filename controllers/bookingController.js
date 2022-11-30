@@ -12,7 +12,6 @@ module.exports.cabDetails = (req, res, next)=>{
 
     // var driverid ;
     // var result;
-    // result = cab.findByPk(req.params.cab_no).then(
     //     cabDetails => {driverid = cabDetails.Driver_Id;
     //     // console.log("Driver id is " + driverid)
     //     return driverid;
@@ -53,6 +52,7 @@ module.exports.saveBookingDetails =  (req, res, next)=>{
    
         
     )
+    
     res.redirect('/paymentDetails/'+req.params.cab_no)
     
 }
@@ -67,4 +67,10 @@ module.exports.viewBookingDetails = async(req, res, next) => {
     {
         data : paymentDetails
     })
+}
+
+//Payment Invoice
+
+module.exports.paymentInvoice = async (req, res, next) => {
+    res.render('invoice')
 }

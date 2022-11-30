@@ -30,7 +30,7 @@ module.exports = async(req, res, next) => {
         mobile : passengerFromDb.dataValues.mobile,
         dob : passengerFromDb.dataValues.dob,
         
-        role : 'passenger'
+        role : passengerFromDb.dataValues.role
     }
     next();
 }

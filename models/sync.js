@@ -38,7 +38,7 @@ Booking.belongsTo(Driver, {
 
 
 
-// Passenger.sync({alter: true});
+Passenger.sync({alter: true});
 
 // Driver.sync({alter: true});
 
