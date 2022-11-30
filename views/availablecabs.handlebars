@@ -3,12 +3,15 @@
     {{!-- <a href="/create" class="btn btn-primary">+ New Movie</a> --}}
     <table class="table table-striped mt-4">
         {{#if data.role}}
-        <button>Add cab</button>
+        <a href="addNewCab">
+            <button class="btn btn-success">Add cab</button>
+
+        </a>
         {{/if}}
         <tr>
             <th>Cab name</th>
             <th>Description</th>
-            <th>Capacity</th>
+            <th>Capacity</th>   
 
             
         </tr>

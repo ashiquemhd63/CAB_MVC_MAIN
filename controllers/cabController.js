@@ -18,3 +18,7 @@ module.exports.avalableCabs = (req, res, next)=>{
     
     
 }
+
+module.exports.addNewCab = (req, res , next) => {
+    res.render('addnewcab')
+}
