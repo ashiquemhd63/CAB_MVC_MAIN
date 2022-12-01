@@ -96,7 +96,14 @@ module.exports.editCabDetails = async (req, res, next)=>{
 
 //Delete cab details
 
-module.exports.deleteCabDetails = (req, res, next)=>{
-    res.redirect('home')
+module.exports.deleteCabDetails = async(req, res, next)=>{
+    let cabno = req.params.cab_no;
+    let cabFromDb = await cab.findByPk(cabno)
+    if (cabFromDb != null) {
+        await cab.destroy({
+            where : {cab_no : cabno}
+        }).then(res.redirect('/home'))
+        
+    }
 }
 

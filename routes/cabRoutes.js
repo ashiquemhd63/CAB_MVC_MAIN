@@ -20,6 +20,6 @@ router.post('/editcabdetails/:cab_no', cabController.editCabDetails)
 
 //deleting cab details by admin
 
-router.get('/deletecabdetails',cabController.deleteCabDetails)
+router.get('/deletecabdetails/:cab_no',cabController.deleteCabDetails)
 
 module.exports = router;
