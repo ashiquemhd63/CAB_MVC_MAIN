@@ -61,4 +61,14 @@ module.exports.saveCabDetails = (req, res, next) =>{
     
 }
 
+//upadating cab details by admin
+module.exports.updateCabDetails = (req, res, next)=>{
+    res.redirect('home')
+}
+
+//Delete cab details
+
+module.exports.deleteCabDetails = (req, res, next)=>{
+    res.redirect('editcab')
+}
 

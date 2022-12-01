@@ -11,12 +11,35 @@
         <tr>
             <th>Cab name</th>
             <th>Description</th>
-            <th>Capacity</th>   
+            <th>Capacity</th>
 
-            
+
         </tr>
+        {{#if data.role}}
         {{#each cabDetails}}
-                <tr>
+        <tr>
+            <td>{{this.dataValues.cab_name}}</td>
+            <td>{{this.dataValues.cab_description}}</td>
+            <td>{{this.dataValues.cab_total_capacity}}</td>
+            <td>
+                <a href="editcabdetails">Edit</a>🚗
+                <a href="deletecabdetails">Delete</a>
+            </td>
+
+            {{!-- <td>{{data.}}</td> --}}
+            {{!-- <td>{{this.mobile}}</td>
+            <td>{{this.dataValues.dob}}</td> --}}
+            {{!-- <td>
+                <a href="/update/{{this.dataValues.id}}">Edit</a> |
+                <a href="/delete/{{this.dataValues.id}}" class="text-danger"
+                    onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+            </td> --}}
+        </tr>
+
+        {{/each}}
+        {{else}}
+        {{#each cabDetails}}
+        <tr>
             <td>{{this.dataValues.cab_name}}</td>
             <td>{{this.dataValues.cab_description}}</td>
             <td>{{this.dataValues.cab_total_capacity}}</td>
@@ -29,18 +52,20 @@
             <td>{{this.dataValues.dob}}</td> --}}
             {{!-- <td>
                 <a href="/update/{{this.dataValues.id}}">Edit</a> |
-                <a href="/delete/{{this.dataValues.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+                <a href="/delete/{{this.dataValues.id}}" class="text-danger"
+                    onclick="return confirm('Are you sure you want to delete this')">Delete</a>
             </td> --}}
         </tr>
 
         {{/each}}
-        <script>
-            console.log
-        </script>
+        
+
+        {{/if}}
+        
        
+
     </table>
-    <p class="text-end">You are logged in as: 
+    <p class="text-end">You are logged in as:
         <b>{{data.firstName}} {{data.lastName}}</b>
     </p>
 </div>
-

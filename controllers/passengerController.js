@@ -110,7 +110,7 @@ module.exports.updateProfilePost =  async (req, res, next ) =>{
     // console.log(req.body.firstName)
     await passenger.update({
         firstName : req.body.firstName,
-        lastName  : req.body.lastName,
+        lastName  : req.body.lastName,  
         email : req.body.email,
         password : req.body.password,
         mobile :  req.body.mobile
