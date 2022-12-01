@@ -11,12 +11,12 @@ router.post('/addNewCab',cabController.saveCabDetails)
 
 //getting route to edit cab details by admin
 
-router.get('/editcabdetails',cabController.updateCabDetails )
+router.get('/editcabdetails/:cab_no',cabController.updateCabDetails )
 
 //saving edited cab details
-//calling same function when saving the data initially
 
-router.post('/editcabdetails', cabController.saveCabDetails)
+
+router.post('/editcabdetails/:cab_no', cabController.editCabDetails)
 
 //deleting cab details by admin
 

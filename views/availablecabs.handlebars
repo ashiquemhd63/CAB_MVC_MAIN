@@ -22,8 +22,8 @@
             <td>{{this.dataValues.cab_description}}</td>
             <td>{{this.dataValues.cab_total_capacity}}</td>
             <td>
-                <a href="editcabdetails">Edit</a>🚗
-                <a href="deletecabdetails">Delete</a>
+                <a href="editcabdetails/{{this.dataValues.cab_no}}">Edit</a>🚗
+                <a href="deletecabdetails/{{this.dataValues.cab_no}}" onclick="return confirm('Are you sure to delete this? ')">Delete</a>
             </td>
 
             {{!-- <td>{{data.}}</td> --}}

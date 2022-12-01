@@ -73,11 +73,30 @@ module.exports.updateCabDetails = (req, res, next)=>{
     })
     
 }
+//edit cab details
+module.exports.editCabDetails = async (req, res, next)=>{
+    var temp = req.body.drivername
+    var new_temp = temp.split(':');
+    await cab.update({
+        cab_name : req.body.cabName,
+        cab_description : req.body.cabDescription,
+        cab_total_capacity : req.body.totalCapacity,
+        Driver_Id : new_temp[1]
+
+    },
+    {
+        where : {
+            cab_no : req.params.cab_no
+        }   
+    }).then(
+        res.redirect('/home')
+    )
+}
 
 
 //Delete cab details
 
 module.exports.deleteCabDetails = (req, res, next)=>{
-    res.redirect('editcab')
+    res.redirect('home')
 }
 
