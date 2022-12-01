@@ -13,6 +13,11 @@ router.post('/addNewCab',cabController.saveCabDetails)
 
 router.get('/editcabdetails',cabController.updateCabDetails )
 
+//saving edited cab details
+//calling same function when saving the data initially
+
+router.post('/editcabdetails', cabController.saveCabDetails)
+
 //deleting cab details by admin
 
 router.get('/deletecabdetails',cabController.deleteCabDetails)

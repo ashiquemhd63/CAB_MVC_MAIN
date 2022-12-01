@@ -24,6 +24,7 @@ module.exports.avalableCabs = (req, res, next)=>{
 // drivers.findAll((driver)=>{
 //     console.log(drivers)
 // })
+
 //getting all the driver deatils for displaying available driver names
 module.exports.addNewCab = (req, res , next) => {
     drivers.findAll().then((driver)=>{
@@ -63,8 +64,16 @@ module.exports.saveCabDetails = (req, res, next) =>{
 
 //upadating cab details by admin
 module.exports.updateCabDetails = (req, res, next)=>{
-    res.redirect('home')
+    drivers.findAll().then((driver)=>{
+        res.render('editcab',{
+            driverName : driver
+        })
+        
+        // driver.every(user => console.log(user.dataValues.Drive_name))
+    })
+    
 }
+
 
 //Delete cab details
 
