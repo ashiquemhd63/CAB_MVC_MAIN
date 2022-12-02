@@ -3,14 +3,14 @@
     <br>
 
     <br>    
-
+    
     <table class="table table-sm-6 table-dark">
-
+        
         <tr>
 
             <th>Passenger Name</th>
 
-            <td>Hrithik</td>
+            <td>{{passengername}}</td>
 
         </tr>
 
@@ -18,7 +18,7 @@
 
             <th>Date</th>
 
-            <td>10-11-2002</td>
+            <td>{{invoice.dataValues.date_of_booking}}</td>
 
         </tr>
 
@@ -26,7 +26,7 @@
 
             <th>Time</th>
 
-            <td>12:15</td>
+            <td>{{invoice.dataValues.booking_time}}</td>
 
         </tr>
 
@@ -34,7 +34,7 @@
 
             <th>Pick up location</th>
 
-            <td>tvm</td>
+            <td>{{invoice.dataValues.cab_from}}</td>
 
         </tr>
 
@@ -42,7 +42,7 @@
 
             <th>Drop location</th>
 
-            <td>kochi</td>
+            <td>{{invoice.dataValues.cab_to}}</td>
 
         </tr>
 
@@ -53,23 +53,10 @@
             <td>3000</td>
 
         </tr>
-        <tr>
-
-            <th>CabNo</th>
-
-            <td>2121</td>
-
-        </tr>
-
-        <tr>
-
-            <th>Driver</th>
-
-            <td>ashique</td>
-
-        </tr>
+       
 
     </table>
+   
 
     <button class="btn btn-success">Print pdf</button>
 

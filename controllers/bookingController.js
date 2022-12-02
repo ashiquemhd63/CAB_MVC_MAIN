@@ -46,23 +46,40 @@ module.exports.saveBookingDetails =  (req, res, next)=>{
     
     
     
+        }).then(reslut=>{
+            //Saving booking id for retrieving data from booking table so that we can print invoice
+
+
+            //Checking output
+
+            // console.log('🚗🚗From result after creating booking table🚗🚗');
+            // console.log("Booking id is: ")
+            // console.log(reslut.book_id)
+            // req.session.passenger.book_id = reslut.book_id;
+                
+            res.redirect('/paymentDetails/'+reslut.book_id)
+            console.log(req.identity.passenger.book_id)
+
         })
 
     }
    
         
     )
-    
-    res.redirect('/paymentDetails/'+req.params.cab_no)
+
     
 }
 
 module.exports.viewBookingDetails = async(req, res, next) => {
     // booking.findByPk(req.params.book_id).then()
-    console.log('🚗🚗🚗🚗🚗')
+    // console.log('🚗🚗🚗🚗🚗')
     // console.log(req.params.cab_no)
-    var paymentDetails = await booking.findOne({where : {cab_no: req.params.cab_no}})
+    var paymentDetails = await booking.findOne({where : {book_id: req.params.book_id}})
+   
+    console.log('🚍🚍🚍🚍🚍🚍🚍')
     console.log(paymentDetails)
+
+
     res.render('payment',
     {
         data : paymentDetails
@@ -72,5 +89,24 @@ module.exports.viewBookingDetails = async(req, res, next) => {
 //Payment Invoice
 
 module.exports.paymentInvoice = async (req, res, next) => {
-    res.render('invoice')
+    console.log('🚗🚗🚗🚗🚗')
+    console.log(req.identity.passenger.book_id)
+    booking.findOne({
+        where: {
+            book_id : req.params.book_id
+        }
+    }).then((result)=>{
+        console.log("✈✈✈✈✈✈✈✈")
+        let name  = req.identity.passenger.firstName + " " + req.identity.passenger.lastName
+        console.log(req.identity.passenger.firstName)
+        res.render('invoice',{
+            invoice : result,
+            passengername : name
+            // passenger_name : passengerFromDb.dataValues.firstName + " " +passengerFromDb.dataValues.lastName
+        })
+    }
+        
+    )
+   
+    
 }

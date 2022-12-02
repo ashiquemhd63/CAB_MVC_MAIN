@@ -7,16 +7,16 @@
                 
                 <div>
                     <label for="cabName">Cab Name</label>
-                    <input type="text" name="cabName" id="cabName" class="form-control">
+                    <input type="text" name="cabName" id="cabName" class="form-control" value="{{cabdetails.dataValues.cab_name}}">
                 </div>
                 <div>
                     <label for="cabDescription">Cab Desctription</label>
                     <textarea name="cabDescription" id="cabDescription" cols="10" rows="5"
-                        class="form-control"></textarea>
+                        class="form-control" >{{cabdetails.dataValues.cab_description}}</textarea>
                 </div>
                 <div>
                     <label for="totalCapacity">Total Capacity</label>
-                    <input type="number" name="totalCapacity" id="totalCapacity" class="form-control">
+                    <input type="number" name="totalCapacity" id="totalCapacity" class="form-control" value="{{cabdetails.dataValues.cab_total_capacity}}">
                 </div>
                
 

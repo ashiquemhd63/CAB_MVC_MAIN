@@ -64,11 +64,19 @@ module.exports.saveCabDetails = (req, res, next) =>{
 
 //upadating cab details by admin
 module.exports.updateCabDetails = (req, res, next)=>{
+    let cabno = req.params.cab_no;
+    
     drivers.findAll().then((driver)=>{
-        res.render('editcab',{
-            driverName : driver
+        cab.findOne({
+            where : {
+                cab_no : cabno
+            }
+        }).then( (cabDetails)=>res.render('editcab',{
+            driverName : driver,
+            cabdetails  : cabDetails
         })
-        
+        )
+       
         // driver.every(user => console.log(user.dataValues.Drive_name))
     })
     
