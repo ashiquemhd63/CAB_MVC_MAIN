@@ -4,14 +4,23 @@
                 <h2 >Book a city Taxi to your destination in town</h1>
             </div>
             <div class="mid-container">
-            <form method="post">
-                <div id="pickupDiv">
-                    <input type="text" id="cabfrom" placeholder="Pick-up location" name="cabfrom">
-                </div>
+            
+            <form method="post" type="form">
+                <label for="cabfrom" type="form-control">Pick Up</label>
+                <select name="cabfrom" id="cabfrom" type="form-control">
+                    {{#each data}}
+                    <option value="{{this.dataValues.from}}">{{this.dataValues.from}}</option>
+                    {{/each}}
+                </select>
+                
+                
                 <br/>
-                <div id="dropDiv">
-                    <input type="text" id="cabto" placeholder="Drop-off location" name="cabto">
-                </div>
+                <label for="To">to</label>
+                <select name="cabto" id="cabto" type="form-control">
+                    {{#each data}}
+                    <option value="{{this.dataValues.to}}">{{this.dataValues.to}}</option>
+                    {{/each}}
+                </select>
                 <div class="alert-danger" id="location"></div>
                 <br/>
                 <div id="dateDiv">
@@ -26,6 +35,7 @@
                 <div id="searchDiv">
                     <button type="submit" id="search">Book now</button>
                 </div>
-            </form>    
+            </form>   
+             
             </div>
 </div>
