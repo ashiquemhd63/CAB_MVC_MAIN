@@ -7,7 +7,8 @@ const {engine} = require('express-handlebars');
 const cookieSession = require('cookie-session');
 const authMiddleware =  require('./middlewares/authenticationMiddleware')
 const bookingRoutes = require('./routes/bookingRoute');
-const cabRoutes = require('./routes/cabRoutes')
+const cabRoutes = require('./routes/cabRoutes');
+const accountRoutes = require('./routes/accountRoute');
 
 const app = express();
 app.engine('handlebars', engine());
@@ -38,6 +39,8 @@ app.use("/", cabRoutes)
 
 app.use('/', bookingRoutes);
 
+//for account managing
+app.use('/',accountRoutes);
 app.listen(80)
 
 
