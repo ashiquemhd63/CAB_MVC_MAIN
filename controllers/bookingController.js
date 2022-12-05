@@ -1,6 +1,9 @@
 const booking = require('../models/booking');
 const cab = require('../models/cab')
 const routecost = require('../models/routecost');
+// const sequelize = require('sequelize');
+// const sequelize = require('../models/db')
+const { QueryTypes } = require('sequelize');
 
 
 const driver = require('../models/driver')
@@ -20,9 +23,19 @@ module.exports.cabDetails = async (req, res, next) => {
     // )
     // console.log("driver id is "+result);
     //taking data from routecost and passing details
-    var route = await routecost.findAll()
-    console.log("56786786876")
-    console.log(route)
+    
+
+    //  await sequelize.query('select distinct * from `routecost`', {
+    //     type: QueryTypes.SELECT
+    //   }).then(result=>{
+    //     console.log(result)
+    //   })
+
+      var route = await routecost.findAll({
+        
+    })
+    // console.log("56786786876")
+    // console.log(route)
     res.render('cabdetails', {
         data: route
 
