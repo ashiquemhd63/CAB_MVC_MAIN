@@ -9,6 +9,7 @@ const authMiddleware =  require('./middlewares/authenticationMiddleware')
 const bookingRoutes = require('./routes/bookingRoute');
 const cabRoutes = require('./routes/cabRoutes');
 const accountRoutes = require('./routes/accountRoute');
+const driverRoutes = require('./routes/driverRoutes')
 
 const app = express();
 app.engine('handlebars', engine());
@@ -41,6 +42,7 @@ app.use('/', bookingRoutes);
 
 //for account managing
 app.use('/',accountRoutes);
+app.use('/',driverRoutes)
 app.listen(80)
 
 

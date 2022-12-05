@@ -13,7 +13,9 @@ module.exports.homePage = (req, res, next)=>{
     // console.log("request at home page: ")
     // console.log(req)
     console.log('🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗')
-    return res.render('homepage')
+    return res.render('homepage',{
+        data :  req.identity.passenger
+    })
 }
 
 module.exports.registerUser = (req, res, nex)=>{
