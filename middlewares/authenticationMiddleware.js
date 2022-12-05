@@ -6,7 +6,7 @@ module.exports = async(req, res, next) => {
         isAuthenticated: false,
         passenger : null
     }
-    if (req.url == '/login' || req.url == '/register') {
+    if (req.url == '/login' || req.url == '/create') {
         return next();
     }
     let passengerId = req.session.passengerId;
