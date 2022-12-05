@@ -16,5 +16,11 @@ router.post('/addNewDriver',driverController.saveDriver);
 
 //saving edited details
 
-router.post('/editdriver/:driver_id', driverController.saveEditedDetails)
+router.post('/editdriver/:driver_id', driverController.saveEditedDetails);
+
+//deleting driver
+
+router.get('/deletedriver/:driver_id',driverController.deleteDriver);
+
+
 module.exports = router;

@@ -65,3 +65,11 @@ module.exports.saveEditedDetails = (req, res, next)=>{
         res.redirect('/driverDetails')
     )
 }
+
+module.exports.deleteDriver = (req, res, next)=>{
+    drivers.destroy({
+        where : { Driver_id :  req.params.driver_id}
+    }).then(
+        res.redirect('/driverDetails')
+    )
+} 
