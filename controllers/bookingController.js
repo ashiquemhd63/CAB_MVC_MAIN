@@ -126,14 +126,26 @@ module.exports.paymentInvoice = async (req, res, next) => {
             book_id: req.params.book_id
         }
     }).then((result) => {
-        console.log("✈✈✈✈✈✈✈✈")
+
+        routecost.findOne({
+            where: {
+                from : result.cab_from,
+                to : result.cab_to
+
+            }
+        }).then((newResult)=>{
+            console.log("✈✈✈✈✈✈✈✈")
         let name = req.identity.passenger.firstName + " " + req.identity.passenger.lastName
         console.log(req.identity.passenger.firstName)
         res.render('invoice', {
             invoice: result,
-            passengername: name
+            passengername: name,
+            cost: newResult.cost
             // passenger_name : passengerFromDb.dataValues.firstName + " " +passengerFromDb.dataValues.lastName
         })
+
+        })
+        
     }
 
     )
