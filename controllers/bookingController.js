@@ -193,7 +193,17 @@ module.exports.sreachBookingByDate = async (req, res, next)=>{
         
     }
     else{
-         res.send('Not found')
+
+         let isFound = 1
+         booking.findAll().then(result => {
+            res.render('viewBookings',{
+                data : result,
+                found : isFound
+
+            })
+         }
+
+         )
 
     }
      
