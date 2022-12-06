@@ -152,3 +152,50 @@ module.exports.paymentInvoice = async (req, res, next) => {
 
 
 }
+
+
+
+//listing all the bookings
+
+module.exports.viewBooking = (req, res, next) => {
+
+    booking.findAll().then(result => {
+        res.render('viewBookings',{
+            data :  result
+        }
+        
+        )
+
+    })
+    
+}
+
+module.exports.sreachBookingByDate = async (req, res, next)=>{
+    // console.log(req.body.date)
+    // var date = new Date(req.body.date)
+    // console.log(date)
+    date = req.body.date
+    console.log(date)
+    
+    allbookings = await booking.findAll({
+        where : {
+            date_of_booking : date
+        }
+    }
+        
+    )
+    console.log(allbookings)
+
+    if (allbookings.length != 0) {
+        res.render('viewBookings',{
+            data : allbookings
+        })
+        
+    }
+    else{
+         res.send('Not found')
+
+    }
+     
+    // res.send('page is working')
+}

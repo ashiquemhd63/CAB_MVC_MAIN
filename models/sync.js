@@ -40,7 +40,7 @@ const Routecost = require('./routecost')
 
 // Passenger.sync({alter: true});
 
-Driver.sync({alter: true});
+// Driver.sync({alter: true});
 
 // Cab.sync({alter: true});
 

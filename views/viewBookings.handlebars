@@ -1,0 +1,50 @@
+
+<div class="col-sm-6 offset-sm-3">
+    <form method="post">
+    <label for="date" >Date</label>
+    <input type="date" name="date" id="date" class="form-control">
+    <button type="submit" class="btn btn-primary" onclick="changeFlag()">Search</button>
+
+
+</form>
+
+</div>
+
+<h1 class="text-center">Booking Details</h1>
+<div class="container">
+    <table class="table table-striped" >
+        <tr>
+            <th>Booking Id</th>
+            <th>Date of booking</th>
+            <th>Cab From</th>
+            <th>Cab To</th>
+            <th>Booking Time</th>
+            <th>Cab No</th>
+            <th>Cost</th>
+            <th>Passenger Id</th>
+            <th>Driver Id</th>
+            
+        </tr>
+        {{#each data}}
+
+        <tr>
+            <td>{{this.dataValues.book_id}}</td>
+            <td>{{this.dataValues.date_of_booking}}</td>
+            <td>{{this.dataValues.cab_from}}</td>
+            <td>{{this.dataValues.cab_to}}</td>
+            <td>{{this.dataValues.booking_time}}</td>
+            <td>{{this.dataValues.cab_no}}</td>
+            <td>{{this.dataValues.cost}}</td>
+            <td>{{this.dataValues.passenger_id}}</td>
+            <td>{{this.dataValues.driver_id}}</td>
+           
+            
+        </tr>
+        {{/each}}
+
+    </table>
+    <a href="viewBookings">
+        <button class="btn btn-success">Booking Details</button>
+    </a>
+    
+</div>

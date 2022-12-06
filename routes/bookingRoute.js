@@ -11,6 +11,8 @@ router.get('/cabDetails/:cab_no',bookingController.cabDetails);
 router.post('/cabDetails/:cab_no',bookingController.saveBookingDetails);
 router.get('/paymentDetails/:book_id',bookingController.viewBookingDetails)
 router.get('/paymentInvoice/:book_id',bookingController.paymentInvoice);
+router.get('/viewBookings',bookingController.viewBooking);
+router.post('/viewBookings',bookingController.sreachBookingByDate)
 
         
 module.exports = router;
