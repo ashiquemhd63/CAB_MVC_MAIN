@@ -1,7 +1,10 @@
-<h1 class="text-center">Your Profile</h1>
+<link rel="stylesheet" href="/static/stylebody.css">
+
+
+<h1 class="text-center profhead" >Your Profile</h1>
 <div class="container">
     {{!-- <a href="/create" class="btn btn-primary">+ New Movie</a> --}}
-    <table class="table table-striped mt-4">
+    {{!-- <table class="table table-striped mt-4">
         <tr>
             <th>Id</th>
             <th>First Name</th>
@@ -10,7 +13,7 @@
             <th>Mobile</th>
             <th>Dob</th>
         </tr>
-                <tr>
+        <tr>
             <td>{{data.id}}</td>
             <td>{{data.firstName}}</td>
             <td>{{data.lastName}}</td>
@@ -22,27 +25,89 @@
             <td>{{this.dataValues.dob}}</td> --}}
             {{!-- <td>
                 <a href="/update/{{this.dataValues.id}}">Edit</a> |
-                <a href="/delete/{{this.dataValues.id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+                <a href="/delete/{{this.dataValues.id}}" class="text-danger"
+                    onclick="return confirm('Are you sure you want to delete this')">Delete</a>
             </td> --}}
+            {{!--
         </tr>
         <script>
             console.log
         </script>
-       
-    </table>
-    <p class="text-end">You are logged in as: 
-        <b>{{data.firstName}} {{data.lastName}}</b>
-    </p>
-</div>
-<a href="/updateProfile" style="text-decoration: none; color:black">
-    <div >
 
-    <button type="button" class="btn btn-info" >Update profile</button>
-    
+    </table> --}}
+
+
+
+    {{!-- Card --}}
+    <div class="card " style="width: 30vw;" >
+
+        <div class="card-body offset-sm-1">
+            <h5 class="card-title">{{data.firstName}} {{data.lastName}}</h5>
+            <table class="table table-striped mt-4">
+                <tr>
+                    <th>Id</th>
+                    <td>{{data.id}}</td>
+                </tr>
+
+                <tr>
+                    <th>First Name</th>
+                    <td>{{data.firstName}}</td>
+
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{data.lastName}}</td>
+
+
+
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{data.email}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile</th>
+                    <td>{{data.mobile}}</td>
+
+
+                </tr>
+                <tr>
+                    <th>Dob</th>
+                    <th>{{data.dob}}</th>
+
+
+                </tr>
+
+
+                <script>
+                    console.log
+                </script>
+
+            </table>
+
+            <a href="/updateProfile" style="text-decoration: none; color:black">
+                <div>
+
+                    <button type="button" class="btn btn-info">Update profile</button>
+
+
+            </a>
+
+            <a href="/deleteProfile" style="text-decoration: none; color:black"
+                onclick="return confirm('Are you sure to delete this? ')">
+                <button type="button" class="btn btn-primary">Delete Profile</button>
+            </a>
+        </div>
+
+
+    </div>
 </div>
-</a>
-<div>
-    <a href="/deleteProfile" style="text-decoration: none; color:black"  onclick="return confirm('Are you sure to delete this? ')">
-    <button type="button"class= "btn btn-primary">Delete Profile</button>
-    </a>
-</div>
+
+
+
+
+
+
+<p class="text-end">You are logged in as:
+    <b>{{data.firstName}} {{data.lastName}}</b>
+</p>
