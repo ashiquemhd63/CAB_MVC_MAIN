@@ -1,7 +1,7 @@
 const booking = require('../models/booking');
 const cab = require('../models/cab')
 const routecost = require('../models/routecost');
-// const sequelize = require('sequelize');
+const sequelize = require('sequelize');
 // const sequelize = require('../models/db')
 const { QueryTypes } = require('sequelize');
 
@@ -31,15 +31,34 @@ module.exports.cabDetails = async (req, res, next) => {
     //     console.log(result)
     //   })
 
-      var route = await routecost.findAll({
-        
+    var route = await routecost.findAll({});
+
+    routecost.findAll( {
+        attributes : [
+            [sequelize.fn('DISTINCT', sequelize.col('from')) ,'from'],
+        ]
+
+    }).then(result=>{
+        // return res.json(result);
+        console.log(result);
+        // return res.send("ok");
+        console.log('hai this is from distinct')
+        console.log(result)
+        console.log(result.from);
+        res.render('cabdetails', {
+            data: route,
+            pickup : result
+        });
+
     })
+
+     
     // console.log("56786786876")
     // console.log(route)
-    res.render('cabdetails', {
-        data: route
+    // res.render('cabdetails', {
+    //     data: route
 
-    });
+    // });
 
 
 
@@ -169,7 +188,7 @@ module.exports.viewBooking = (req, res, next) => {
     })
     
 }
-
+//serach bookings by date
 module.exports.sreachBookingByDate = async (req, res, next)=>{
     // console.log(req.body.date)
     // var date = new Date(req.body.date)

@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="/static/stylecabdetails.css" type="text/css">
   <div class="container">
             <div class="header">
-                <h2 >Book a city Taxi to your destination in town</h1>
+                <h2 >Book a city Taxi to your destination in town </h1>
             </div>
             <div class="mid-container">
             
             <form method="post" type="form">
                 <label for="cabfrom" type="form-control">Pick Up</label>
-                <select name="cabfrom" id="cabfrom" type="form-control">
-                    {{#each data}}
+                <select name="cabfrom" id="cabfrom" type="form-control" class="form-controll">
+                    {{#each pickup}}
                     <option value="{{this.dataValues.from}}">{{this.dataValues.from}}</option>
                     {{/each}}
                 </select>
@@ -39,3 +39,4 @@
              
             </div>
 </div>
+
