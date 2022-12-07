@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/static/stylelogin.css">
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6 offset-sm-3">
@@ -12,14 +14,14 @@
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
                 <div class="d-grid mt-4">
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-success">Login</button>
                     {{#if message}}
                         <p class="text-danger">{{message}}</p>
                     {{/if}}
                 </div>
             </form>
 
-            <a href="create" class="link-secondary">if you don't have an account?  register</a>
+            <a href="create" class="link-warning">if you don't have an account?  register</a>
         </div>
     </div>
 </div>
