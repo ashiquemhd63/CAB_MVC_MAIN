@@ -12,9 +12,12 @@ module.exports.registerPage = (req, res, next) => {
 module.exports.homePage = (req, res, next)=>{
     // console.log("request at home page: ")
     // console.log(req)
+
     console.log('🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗')
+    // console.log(req.session.role)
     return res.render('homepage',{
-        data :  req.identity.passenger
+        data :  req.identity.passenger,
+        isDriver : req.session.role + 1
     })
 }
 

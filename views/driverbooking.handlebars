@@ -1,4 +1,6 @@
-{{!-- 
+{{!-- Printing each bookings for current logined driver --}}
+
+
 <div class="col-sm-6 offset-sm-3">
     <form method="post">
     <label for="date" >Date</label>
@@ -6,7 +8,7 @@
     <button type="submit" class="btn btn-primary" onclick="changeFlag()">Search</button>
 
 
-</form> --}}
+</form>
 
 </div>
 
@@ -28,9 +30,8 @@
             <th>Booking Time</th>
             <th>Cab No</th>
             <th>Cost</th>
-            <th>Action</th>
-            {{!-- <th>Passenger Id</th>
-            <th>Driver Id</th> --}}
+            <th>Passenger Id</th>
+            <th>Driver Id</th>
             
         </tr>
         {{#each data}}
@@ -43,9 +44,8 @@
             <td>{{this.dataValues.booking_time}}</td>
             <td>{{this.dataValues.cab_no}}</td>
             <td>{{this.dataValues.cost}}</td>
-            <td><a href="#">Accept</a> | <a href="#">Reject</a></td>
-            {{!-- <td>{{this.dataValues.passenger_id}}</td>
-            <td>{{this.dataValues.driver_id}}</td> --}}
+            <td>{{this.dataValues.passenger_id}}</td>
+            <td>{{this.dataValues.driver_id}}</td>
            
             
         </tr>

@@ -2,7 +2,7 @@
 
 
 
-
+const booking = require('../models/booking')
 
 const drivers = require('../models/driver');
 
@@ -25,11 +25,15 @@ module.exports.driverLoginPost = async (req, res, next) => {
     req.session.driverId = credentials[0].dataValues.Driver_id;
     console.log('this is from driver controller cookie driver id '+ req.session.driverId)
     req.session.role = 0;
+
+    
     
 
-    res.redirect('/home')
+    res.redirect('driverhome')
 }
-
+module.exports.driverHome = (req, res, next) => {
+    res.render('driverhome')
+}
 //Registration
 
 module.exports.driverRegistration = (req, res, next) => {
@@ -45,8 +49,9 @@ module.exports.driverRegistrationPost = (req, res, next) => {
         Driver_email : req.body.email,
         Driver_adress : req.body.address,
         Driver_dob : req.body.dob,
-        Driver_gender : req.body.gender
-    }).then(res.redirect('/driverDetails'))
+        Driver_gender : req.body.gender,
+        Driver_password : req.body.password
+    }).then(res.redirect('/driverlogin'))
 }
 
 
@@ -123,3 +128,27 @@ module.exports.deleteDriver = (req, res, next)=>{
         res.redirect('/driverDetails')
     )
 } 
+
+
+
+
+
+
+/** ViewBokkings is rendered here to print all bookings for driver
+ * driver can see his bookings here
+ */
+module.exports.viewAllBookings = (req, res, next) => {
+    booking.findAll({
+        where: {
+            Driver_id : req.session.driverId
+
+        } 
+    }).then(result => 
+        res.render('viewBookings',{
+            data : result
+        })
+        )
+
+
+    
+}
