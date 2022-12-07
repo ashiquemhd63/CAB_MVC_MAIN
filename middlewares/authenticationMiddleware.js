@@ -6,10 +6,20 @@ module.exports = async(req, res, next) => {
         isAuthenticated: false,
         passenger : null
     }
-    if (req.url == '/login' || req.url == '/create') {
+    var logintype = null;
+    if (req.url == '/login' || req.url == '/create' || req.url == '/driverlogin') {
+        
         return next();
     }
-    let passengerId = req.session.passengerId;
+    if (req.url == '/login' || req.url == '/create') {
+        var passengerId = req.session.passengerId;  
+        return next();
+    }
+    else{
+        var driverid = req.session.driver_id
+    }
+    
+    // let passengerId = req.session.passengerId;
     if(!passengerId || passengerId == null){
         return res.redirect("/login");
     }
