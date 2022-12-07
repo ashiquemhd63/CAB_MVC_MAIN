@@ -15,6 +15,10 @@ router.post('/driverlogin', driverController.driverLoginPost)
 
 router.get('/driverregister', driverController.driverRegistration);
 
+//saving new driver details
+
+router.post('/driverregister',driverController.driverRegistrationPost)
+
 
 router.get('/driverDetails',driverController.driverDetails)
 router.get('/editdriver/:driver_id',driverController.editDriver)

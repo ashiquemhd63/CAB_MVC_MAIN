@@ -17,9 +17,9 @@ module.exports.driverLoginPost = async (req, res, next) => {
         Driver_password : req.body.password
 
     }});
-    console.log(credentials[0].dataValues)
+    // console.log(credentials[0].dataValues)
 
-    if (credentials == null) {
+    if (credentials.length == 0) {
         return res.render('driverlogin',{message: 'Invalid credentials'})
     }
     req.session.driverId = credentials[0].dataValues.Driver_id;
@@ -34,6 +34,19 @@ module.exports.driverLoginPost = async (req, res, next) => {
 
 module.exports.driverRegistration = (req, res, next) => {
     res.render('driverregister')
+}
+
+//saving registered data
+//
+module.exports.driverRegistrationPost = (req, res, next) => {
+    drivers.create({
+        Drive_name :  req.body.drivername,
+        Driver_license_no : req.body.licenseno,
+        Driver_email : req.body.email,
+        Driver_adress : req.body.address,
+        Driver_dob : req.body.dob,
+        Driver_gender : req.body.gender
+    }).then(res.redirect('/driverDetails'))
 }
 
 
@@ -69,7 +82,7 @@ module.exports.addDriver = (req, res, next)=>{
     res.render('addDriver')
 }
 
-
+//TODO: need to delete
 module.exports.saveDriver = (req, res, next) => {
     drivers.create({
         Drive_name :  req.body.drivername,
