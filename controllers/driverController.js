@@ -17,12 +17,14 @@ module.exports.driverLoginPost = async (req, res, next) => {
         Driver_password : req.body.password
 
     }});
-    console.log(credentials)
+    console.log(credentials[0].dataValues)
 
     if (credentials == null) {
         return res.render('driverlogin',{message: 'Invalid credentials'})
     }
-    req.session.driverId = credentials.Driver_id
+    req.session.driverId = credentials[0].dataValues.Driver_id;
+    console.log('this is from driver controller cookie driver id '+ req.session.driverId)
+    req.session.role = 0;
     
 
     res.redirect('/home')

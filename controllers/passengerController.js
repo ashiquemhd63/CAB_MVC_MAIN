@@ -50,6 +50,7 @@ module.exports.loginPost = async (req, res, next) =>{
     }
     //TODO: ADD cookie, save the passenger id in cookie session
     req.session.passengerId = passFromDb.Passenger_id;
+    req.session.role = 1;
     // console.log( req.session.passengerId)
     //below code is working
     // console.log("the saved passenger id")
