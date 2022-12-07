@@ -1,5 +1,40 @@
 //TODO: driver add , delete , update
+
+
+
+
+
 const drivers = require('../models/driver');
+
+
+module.exports.driverLogin = (req, res, next) => {
+    res.render('driverlogin');
+}
+
+module.exports.driverLoginPost = async (req, res, next) => {
+    var credentials = await drivers.findAll({where:{
+        Driver_email : req.body.email,
+        Driver_password : req.body.password
+
+    }});
+    console.log(credentials)
+
+    if (credentials == null) {
+        return res.render('driverlogin',{message: 'Invalid credentials'})
+    }
+    req.session.driverId = credentials.Driver_id
+    
+
+    res.redirect('/home')
+}
+
+//Registration
+
+module.exports.driverRegistration = (req, res, next) => {
+    res.render('driverregister')
+}
+
+
 module.exports.driverDetails = (req, res, next)=>{
     drivers.findAll().then(result => {
         console.log(result)

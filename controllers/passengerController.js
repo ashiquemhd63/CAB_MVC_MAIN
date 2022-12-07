@@ -39,15 +39,18 @@ module.exports.loginPage = (req, res, next)=>{
 }
 
 module.exports.loginPost = async (req, res, next) =>{
+    // console.log('🚗🚗🚗🚗')
     const {email, password} = req.body;
     const passFromDb = await passenger.findOne({
         where:{ email: email, password: password}
     });
+    // console.log(passFromDb)
     if (passFromDb == null) {
         return res.render('login',{message : 'no user found'})
     }
     //TODO: ADD cookie, save the passenger id in cookie session
     req.session.passengerId = passFromDb.Passenger_id;
+    // console.log( req.session.passengerId)
     //below code is working
     // console.log("the saved passenger id")
     // console.log(req.session.passengerId)
