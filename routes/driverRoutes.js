@@ -30,6 +30,8 @@ router.get('/driverDetails',driverController.driverDetails)
 router.get('/editdriver/:driver_id',driverController.editDriver)
 router.get('/addNewDriver',driverController.addDriver);
 
+//Viewing driver profile
+router.get('/viewdriverprofile',driverController.viewDriverProfile)
 
 
 //saving driver details

@@ -55,6 +55,22 @@ module.exports.driverRegistrationPost = (req, res, next) => {
 }
 
 
+module.exports.viewDriverProfile = (req, res, next)=>{
+    drivers.findCreateFind({
+        where : {
+            Driver_id :  req.session.driverId
+        }
+    }).then(result => {
+        console.log('🚗🚗🚗🚗🚗')
+        console.log(result[0])
+        res.render('driverDetails',{
+            driverDetails : result[0]
+        })
+        
+    })
+   
+}
+
 module.exports.driverDetails = (req, res, next)=>{
     drivers.findAll().then(result => {
         console.log(result)

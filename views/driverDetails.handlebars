@@ -3,10 +3,7 @@
     {{!-- <a href="/create" class="btn btn-primary">+ New Movie</a> --}}
     <table class="table table-striped mt-4">
         
-        <a href="addNewDriver">
-            <button class="btn btn-success">Add Driver</button>
-
-        </a>
+        
         
         <tr>
             <th>id</th>
@@ -21,21 +18,26 @@
 
         </tr>
         
-        {{#each driverDetails}}
+        {{!-- {{#each driverDetails}} --}}
         <tr>
-            <td>{{this.dataValues.Driver_id}}</td>
-            <td>{{this.dataValues.Drive_name}}</td>
-            <td>{{this.dataValues.Driver_license_no}}</td>
-            <td>{{this.dataValues.Driver_email}}</td>
-            <td>{{this.dataValues.Driver_adress}}</td>
-            <td>{{this.dataValues.Driver_dob}}</td>
-            <td>{{this.dataValues.Driver_gender}}</td>
+            <td>{{driverDetails.dataValues.Driver_id}}</td>
+            <td>{{driverDetails.dataValues.Drive_name}}</td>
+            <td>{{driverDetails.dataValues.Driver_license_no}}</td>
+            <td>{{driverDetails.dataValues.Driver_email}}</td>
+            <td>{{driverDetails.dataValues.Driver_adress}}</td>
+            <td>{{driverDetails.dataValues.Driver_dob}}</td>
+            <td>{{driverDetails.dataValues.Driver_gender}}</td>
+            <td>{{driverDetails.dataValues.Driver_password}}</td>
             
 
             <td>
-                <a href="editdriver/{{this.dataValues.Driver_id}}">Edit</a>🚗
-                <a href="deletedriver/{{this.dataValues.Driver_id}}" onclick="return confirm('Are you sure to delete this? ')">Delete</a>
+                <a href="editdriver/{{driverDetails.dataValues.Driver_id}}">Edit</a>🚗
+                <a href="deletedriver/{{driverDetails.dataValues.Driver_id}}" onclick="return confirm('Are you sure to delete this? ')">
+             <button class="btn btn-success">Delete</button>
+            </a>
             </td>
+            
+           
 
             {{!-- <td>{{data.}}</td> --}}
             {{!-- <td>{{this.mobile}}</td>
@@ -47,7 +49,7 @@
             </td> --}}
         </tr>
 
-        {{/each}}
+        {{!-- {{/each}} --}}
         
         {{#each cabDetails}}
         <tr>
